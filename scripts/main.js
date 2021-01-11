@@ -94,4 +94,13 @@ function newSandwichArray(name, price, ingredients) {
 newSandwichArray('turkey', 6.99, ['turkey', 'cheese', 'bread'])
 
 // Write a function that reduces every sandwich's price by 25% and returns a new array of discount sandwiches.
+function sandwichPriceReducer() {
+  let discountSandwichArray = [];
+  for (let i = 0; i < menu.length; i++) {
+
+  }
+  
+  return discountSandwichArray;
+}
+
 // Write a "Dairy Free" function that loops through your array of sandwiches and returns a new array of sandwiches that do NOT include cheese in their ingredient list. (Make sure you have at least one sandwich with cheese so you can test if this function works.)
