@@ -95,20 +95,27 @@ for (let i = 0; i < menu.length; i++) {
 
 // Write a function that reduces every sandwich's price by 25% and returns a new array of discount sandwiches.
 function sandwichPriceReducer() {
+  // Declaring an array to hold the reduced price sandwiches
   let discountSandwichArray = [];
- 
+  // looping through the menu
   for (let i = 0; i < menu.length; i++) {
-  
+    // storing the price of each sandwich in a variable
     let menuPrice = menu[i].price;
+    // changing the price to 25% off price and then storing those values in a new variable
     let reductionPercentage = (menuPrice / 1.25);
+    // a new variable to store the new info including the discounted price
     let infoStorage = {
+      // storing the name of the sandwich
       name: menu[i].name,
+      // storing the price of the sandwich
       price: menuPrice,
+      // adjusting the reduced price to only 2 places after the decimal point and then storing it as a value in the object
       discountPrice: reductionPercentage.toFixed(2)
     };
+    // populating the array with the information from the info storage variable
     discountSandwichArray.push(infoStorage);
   }
-  
+  // returning the new array
   return discountSandwichArray;
 }
 
@@ -116,3 +123,18 @@ let cheapSandwichArray = sandwichPriceReducer();
 console.log(cheapSandwichArray);
 
 // Write a "Dairy Free" function that loops through your array of sandwiches and returns a new array of sandwiches that do NOT include cheese in their ingredient list. (Make sure you have at least one sandwich with cheese so you can test if this function works.)
+function dairyFree() {
+  let noCheeseArray = [];
+  let cheeseArray = [];
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].ingredients.includes("cheese")) {
+      cheeseArray.push(menu[i]);
+    } else {
+      noCheeseArray.push(menu[i]);
+    }
+  }
+  return noCheeseArray;
+}
+
+let cheeselessSandwiches = dairyFree();
+console.log(cheeselessSandwiches); // egg salad, rueben
