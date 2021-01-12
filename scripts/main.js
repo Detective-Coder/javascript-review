@@ -86,21 +86,33 @@ for (let i = 0; i < menu.length; i++) {
 
 // console.log(newSandwich('Chicken', 10.99, 'chicken, bread, pickles, mayo'));
 
-function newSandwichArray(name, price, ingredients) {
-  let newSandwichObject = {name, price, ingredients};
-  menu.push(newSandwichObject)
-  console.log(menu)
-}
-newSandwichArray('turkey', 6.99, ['turkey', 'cheese', 'bread'])
+// function newSandwichArray(name, price, ingredients) {
+//   let newSandwichObject = {name, price, ingredients};
+//   menu.push(newSandwichObject)
+//   console.log(menu)
+// }
+// newSandwichArray('turkey', 6.99, ['turkey', 'cheese', 'bread'])
 
 // Write a function that reduces every sandwich's price by 25% and returns a new array of discount sandwiches.
 function sandwichPriceReducer() {
   let discountSandwichArray = [];
+ 
   for (let i = 0; i < menu.length; i++) {
-
+  
+    let menuPrice = menu[i].price;
+    let reductionPercentage = (menuPrice / 1.25);
+    let infoStorage = {
+      name: menu[i].name,
+      price: menuPrice,
+      discountPrice: reductionPercentage.toFixed(2)
+    };
+    discountSandwichArray.push(infoStorage);
   }
   
   return discountSandwichArray;
 }
+
+let cheapSandwichArray = sandwichPriceReducer();
+console.log(cheapSandwichArray);
 
 // Write a "Dairy Free" function that loops through your array of sandwiches and returns a new array of sandwiches that do NOT include cheese in their ingredient list. (Make sure you have at least one sandwich with cheese so you can test if this function works.)
